@@ -1,11 +1,11 @@
 class Solution:
     
-    """
-My Solution :
-
-    """
+        
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        """
+        My Solution :
     
+        """
 #         hashmap = {}
 
 #         for subStr in strs:
@@ -23,7 +23,7 @@ Chat GPT solution :
 
     This way we're using a hash table to store the count of each character in the string, and using this count as the key, we avoid the need of sorting the strings, which reduces the time complexity of the solution.
 """
-# Create an empty dictionary to store the anagrams
+        # Create an empty dictionary to store the anagrams
         anagrams = {}
         # Iterate through the list of strings
         for s in strs:

@@ -1,6 +1,11 @@
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+    
+    """
+My Solution :
 
+    """
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+    
 #         hashmap = {}
 
 #         for subStr in strs:
@@ -12,6 +17,12 @@ class Solution:
 #                 hashmap[sortWord] += [subStr]
 #         return list(hashmap.values())
 
+        """
+Chat GPT solution :
+    This optimized solution has a time complexity of O(nk) where n is the number of strings and k is the maximum length of the strings, which is better than the previous solution, and also a space complexity of O(nk), where n is the number of strings and k is the maximum length of the strings, which is the same as the previous solution.
+
+    This way we're using a hash table to store the count of each character in the string, and using this count as the key, we avoid the need of sorting the strings, which reduces the time complexity of the solution.
+"""
 # Create an empty dictionary to store the anagrams
         anagrams = {}
         # Iterate through the list of strings

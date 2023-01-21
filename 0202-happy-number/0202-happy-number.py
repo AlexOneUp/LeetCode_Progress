@@ -3,8 +3,8 @@ class Solution:
 
         while n != 1: 
             """
-        u can do the summation of x  ^ 2 for each char at string of n
-        sum(iterable, start)
+                u can do the summation of x  ^ 2 for each char at string of n
+                sum(iterable, start)
             """ 
             sq_sum = sum([int(x) ** 2 for x in str(n)])
             # Magic Math property https://en.wikipedia.org/wiki/Happy_number

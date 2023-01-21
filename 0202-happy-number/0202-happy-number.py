@@ -1,9 +1,9 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        sq_sum = sum([int(x) ** 2 for x in str(n)])
-        n=sq_sum
+
         while n != 1: 
             sq_sum = sum([int(x) ** 2 for x in str(n)])
+            # Magic Math property https://en.wikipedia.org/wiki/Happy_number
             if n == 4 :
                 return False
             n = sq_sum

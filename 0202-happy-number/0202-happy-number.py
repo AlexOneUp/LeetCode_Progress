@@ -8,11 +8,9 @@ class Solution:
             """ 
             sq_sum = sum([int(x) ** 2 for x in str(n)])
             # Magic Math property https://en.wikipedia.org/wiki/Happy_number
-            if n == 4 :
+            if n == 4:
                 return False
             n = sq_sum
-            print(sq_sum)
-         
         if len(str(n)) == 1 and n == 1:
             return True
    

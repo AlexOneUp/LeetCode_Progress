@@ -11,7 +11,8 @@ class Solution:
         
         for k,v in letters.items():
             if v > 0:
-                res += k * v  
-            continue
+                res += k * v
+            else:
+                break
 
         return res

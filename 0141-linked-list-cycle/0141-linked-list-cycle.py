@@ -21,7 +21,7 @@ class Solution:
                 return False
             s = s.next
             f = f.next.next
-
+        # If it got to the end of the linked list, then we know there's no cycle
         return True
 
         

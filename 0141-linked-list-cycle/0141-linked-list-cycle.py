@@ -6,13 +6,18 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-#         Tortoise hare method
+
+        # If there is no head / start of the list, return false
         if not head:
             return False
+        
+        # Tortoise hare method
         s = head
         f = head.next
+        
         while s != f :
-            if not f or  not f.next:
+            # If the fast ptr doesn't reach end or the end - 1 ptr
+            if not f or not f.next:
                 return False
             s = s.next
             f = f.next.next

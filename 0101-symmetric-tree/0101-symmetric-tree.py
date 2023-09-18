@@ -8,11 +8,13 @@ class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
  
         def dfs(left_st, right_st):
+            # If there are no leaf nodes from root, then its balanced
             if not left_st and not right_st: return True
-            
+            # If there is no node on either side
             if not right_st or not left_st: return False
             
-            return left_st.val == right_st.val and dfs(left_st.right, right_st.left) and dfs(left_st.left,right_st.right)
+            if left_st.val == right_st.val:
+                return dfs(left_st.right, right_st.left) and dfs(left_st.left,right_st.right)
             
         # def isMirror(t1, t2):
             # if not t1 and not t2:

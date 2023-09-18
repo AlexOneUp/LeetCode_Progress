@@ -13,6 +13,7 @@ class Solution:
             # If there is no node on either side
             if not right_st or not left_st: return False
             
+            # If the leaf node values are the same, call dfs
             if left_st.val == right_st.val:
                 return dfs(left_st.right, right_st.left) and dfs(left_st.left,right_st.right)
             

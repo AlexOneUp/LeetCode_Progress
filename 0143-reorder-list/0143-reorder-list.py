@@ -30,6 +30,7 @@ class Solution:
         midpt = reverse(slow)
         left = head
 
+        # While midpt.next exists and isn't Null
         while midpt.next:     
             next_hop = left.next
             left.next = midpt

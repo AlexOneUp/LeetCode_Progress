@@ -15,7 +15,7 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
 #         Now slow is the mid-point   
-        
+#         Reverse the second half
         def reverse(node):
             cur = node
             prev = None

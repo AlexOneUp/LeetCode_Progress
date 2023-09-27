@@ -8,20 +8,15 @@ class Node:
 
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
-
-        if root == None:
-            return []
+        res = []
         
-        preorderPath = [] # store preorder path 1
-
-        # check for child
-        # recursively call those steps
-        # How would you do this?
         def dfs(node):
-            preorderPath.append(node.val)
+
+            if not node:
+                return            
+            res.append(node.val)
             for child in node.children:
-                    dfs(child)
+                dfs(child)
         dfs(root)
-        return preorderPath
         return res
         

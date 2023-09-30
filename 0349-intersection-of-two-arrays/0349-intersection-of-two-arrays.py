@@ -7,6 +7,7 @@ class Solution:
         hmap = dict()
         
         longer_arr = max(len(nums1), len(nums2))
+        
         if longer_arr < len(nums1):
             for num in nums2:
                 hmap[num] = 0

@@ -27,3 +27,8 @@ class Solution:
         for each_sum in tree_sums:
             max_product = max(max_product, each_sum * (total_sum - each_sum))
         return max_product % (10**9 + 7)
+    
+    # https://www.youtube.com/watch?v=ZGmvcUtXKxU
+    
+    # T = O(N) + O(N) 
+    # S = O(N) + O(N)

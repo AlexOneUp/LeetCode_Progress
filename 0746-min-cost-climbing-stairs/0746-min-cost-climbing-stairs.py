@@ -12,3 +12,6 @@ class Solution:
             memo[i] = cost[i] + min(memo[i-1], memo[i-2])
    
         return min(memo[-1] , memo[-2])
+
+# T : O(1) + O(N - 2)
+# S : O(N)

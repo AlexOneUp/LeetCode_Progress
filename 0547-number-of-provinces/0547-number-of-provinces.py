@@ -7,9 +7,7 @@ class Solution:
         cities_in_row = len(isConnected)
         # Represents the columns
        
-        visited = { 
-            city : False for city in range(cities_in_row)
-        }  #{ 0: False, 1: False, 2: False }
+        visited = { city : False for city in range(cities_in_row) }  #{ 0: False, 1: False, 2: False }
     
         # Iter through the rows and see if there is a connecting city.
         def dfs(row):

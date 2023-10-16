@@ -17,8 +17,8 @@ class Solution:
                 if isConnected[row][col] and not visited[col]:
                     visited[col] = True
                     dfs(col)
-        # For the cities in a current row, if they weren't visited, do DFS on the 
         
+        # For the cities in a current row, if they weren't visited, do DFS on the   
         for city in range(cities_in_row):
             if not visited[city]:
                 dfs(city)

@@ -6,8 +6,8 @@ class Solution:
         
         cities_in_row = len(isConnected)
         # Represents the columns
-        visited = [False] * len(isConnected)
-        
+        visited = { city : False for city in range(cities_in_row) }
+    
         # Iter through the rows and see if there is a connecting city.
         def dfs(row):
             for col in range(cities_in_row):
@@ -54,7 +54,7 @@ class Solution:
 # PROVINCES CAN BE BOTH Connected OR Unconnected
 # As you traverse the graph, flag the visited provinces.
 
-# [        0 1 2
+# [        0 1 2 -> visited Set
 #       _________
 #     0 | [1,1,0],  
 #     1 | [1,1,0], [0]->[1]

@@ -22,11 +22,13 @@ class Solution:
             #     if ch not in uni_ch:
             #         uni_ch.add(ch)
             
+            # If the length of distinct characters is <= maxLetters, then update hashmap of occurences
             if len(uni_ch) <= maxLetters:
                 if substr in str_occurs:
                     str_occurs[substr] += 1
                 else:
                     str_occurs[substr] = 1           
+                # Figure out the running maximum occurences
                 max_occ = max(max_occ, str_occurs[substr])
             
             idx += 1

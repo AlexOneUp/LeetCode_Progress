@@ -14,12 +14,12 @@ class Solution:
         while idx <= len(s) - minSize:
 
             substr = s[idx:idx + minSize]
-            uni_ch = set()
+            uni_ch = set(substr)
             
-            for ch in substr:
-                # Unique character and the size of unique characters does not exceed maxLetter
-                if ch not in uni_ch:
-                    uni_ch.add(ch)
+            # for ch in substr:
+            #     # Unique character and the size of unique characters does not exceed maxLetter
+            #     if ch not in uni_ch:
+            #         uni_ch.add(ch)
             
             if len(uni_ch) <= maxLetters:
                 if substr in str_occurs:

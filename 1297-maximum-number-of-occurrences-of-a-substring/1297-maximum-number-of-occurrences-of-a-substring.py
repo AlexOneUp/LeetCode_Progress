@@ -14,6 +14,7 @@ class Solution:
         while idx <= len(s) - minSize:
 
             substr = s[idx:idx + minSize]
+            # Set can take a string and makes a set.
             uni_ch = set(substr)
             
             # for ch in substr:

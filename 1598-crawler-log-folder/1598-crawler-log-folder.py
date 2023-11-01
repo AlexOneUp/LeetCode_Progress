@@ -4,10 +4,10 @@ class Solution:
         
         res = 0
         
-        for log in logs:
-            if log not in ops:
+        for file in logs:
+            if file not in ops:
                 res += 1
-            if log in ops and res != 0:
-                res += ops[log]
+            if file in ops and res != 0:
+                res += ops[file]
 
         return res

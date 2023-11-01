@@ -5,9 +5,11 @@ class Solution:
         res = 0
         
         for file in logs:
-            if file not in ops:
+            if file != '../' and file != './':
                 res += 1
-            if file in ops and res != 0:
-                res += ops[file]
+            if file == '../' and res != 0:
+                res -= 1
+            else :
+                continue
 
         return res

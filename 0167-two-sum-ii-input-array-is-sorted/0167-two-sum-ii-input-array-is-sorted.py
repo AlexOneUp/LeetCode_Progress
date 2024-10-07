@@ -5,7 +5,7 @@ class Solution:
         l = 0
         r = len(numbers) - 1
         
-        while (l <= r) :
+        while (l < r) :
             if target - numbers[r] == numbers[l]:
                 res[0] = l + 1
                 res[1] = r + 1

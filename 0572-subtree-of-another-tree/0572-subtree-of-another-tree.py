@@ -8,29 +8,32 @@ class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         # This way you know both trees are not empty.
         # order matters
-        if not subRoot: 
+        if not subRoot:
             return True
-        if not root:
+        if not root and subRoot:
             return False
         
-        if self.same(root, subRoot):
+        
+        if self.compare_tree(root, subRoot) == True:
             return True
-        
-        return (self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot))
-        
-        
-        
-    # Compares trees to see if they're the same    
-    def same(self, root, subRoot):
-        # NULL trees are the same
-        if not root and not subRoot:
+
+        if self.isSubtree(root.left, subRoot) == True:
             return True
-        # Look at leaf nodes and recursively look at the subtrees
-        if root and subRoot and root.val == subRoot.val:
-            return (self.same(root.left, subRoot.left) and
-            self.same(root.right, subRoot.right))
-        # If there are any extra nodes, then they cannot be subtrees of eachother
+        elif self.isSubtree(root.right, subRoot) == True:
+            return True
+        else:
+            return False
+
+
+    def compare_tree(self, cur, sub_cur):
+        if not cur and not sub_cur:
+            return True
+
+        if (cur and sub_cur) and (cur.val == sub_cur.val):
+            return (self.compare_tree(cur.left, sub_cur.left) and self.compare_tree(cur.right, sub_cur.right))
         return False
+
+
 
 # Edgecases:
 #   if both trees are null, theyre same

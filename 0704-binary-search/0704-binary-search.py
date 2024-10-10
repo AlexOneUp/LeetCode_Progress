@@ -14,6 +14,7 @@ class Solution:
 #                 return m
         
 #         return -1
+    
         while l <= r:
             m = l + ((r - l) // 2)  # (l + r) // 2 can lead to overflow
             if nums[m] > target:

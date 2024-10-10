@@ -12,7 +12,6 @@ class Solution:
 #                 l = m + 1
 #             else:
 #                 return m
-        
 #         return -1
     
         while l <= r:

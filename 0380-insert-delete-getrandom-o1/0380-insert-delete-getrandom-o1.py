@@ -1,36 +1,35 @@
 class RandomizedSet:
 
     def __init__(self):
-        self.map_idx = {}
-        self.list_nums = []
+        # track number and the 
+        self.hmap = {}
+        self.arr = []
 
+        
+        
     def insert(self, val: int) -> bool:
-        val_in_map = val in self.map_idx
-        # Populate the hashmap if the val is not in the hashmap already
-        if not val_in_map: 
-            self.map_idx[val] = len(self.list_nums)
-            self.list_nums.append(val)
-        return not val_in_map
+        bool_inMap = val not in self.hmap
+        
+        if bool_inMap: 
+            self.hmap[val] = len(self.arr)
+            self.arr.append(val)
+    
+        return bool_inMap
 
     def remove(self, val: int) -> bool:
-        val_in_map = val in self.map_idx
+        bool_inMap = val in self.hmap
         
-        # Pointer magic
-        if val_in_map:
-            idx = self.map_idx[val]
-            last_val = self.list_nums[-1]
-            self.list_nums[idx] = last_val
-            # Removing actual last element
-            self.list_nums.pop()
+        if bool_inMap:
+            idx = self.hmap[val]
+            lastVal = self.arr[-1]
+            self.arr[idx] = lastVal
+            self.arr.pop()
+            self.hmap[lastVal] = idx
+            del self.hmap[val]
+        return bool_inMap
             
-            # Update the hashmap val with the new idx
-            self.map_idx[last_val] = idx
-            # Remove the previous val from our hmap
-            del self.map_idx[val]
-        return val_in_map
-    
     def getRandom(self) -> int:
-        return random.choice(self.list_nums)
+        return random.choice(self.arr)
 
 
 # Your RandomizedSet object will be instantiated and called as such:

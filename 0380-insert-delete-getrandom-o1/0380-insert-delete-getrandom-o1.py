@@ -1,33 +1,29 @@
 class RandomizedSet:
 
     def __init__(self):
-        # track number and the 
         self.hmap = {}
         self.arr = []
 
-        
-        
     def insert(self, val: int) -> bool:
-        bool_inMap = val not in self.hmap
+        in_hmap = val in self.hmap
         
-        if bool_inMap: 
+        if not in_hmap:
             self.hmap[val] = len(self.arr)
-            self.arr.append(val)
-    
-        return bool_inMap
+            self.arr.append(val)       
+        return not in_hmap
 
     def remove(self, val: int) -> bool:
-        bool_inMap = val in self.hmap
+        in_hmap = val in self.hmap
         
-        if bool_inMap:
+        if in_hmap:
             idx = self.hmap[val]
-            lastVal = self.arr[-1]
-            self.arr[idx] = lastVal
+            last_val = self.arr[-1]
+            self.arr[idx] = last_val
             self.arr.pop()
-            self.hmap[lastVal] = idx
-            del self.hmap[val]
-        return bool_inMap
-            
+            self.hmap[last_val] = idx
+            del self.hmap[val]    
+        return in_hmap
+
     def getRandom(self) -> int:
         return random.choice(self.arr)
 

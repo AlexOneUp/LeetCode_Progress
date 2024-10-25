@@ -12,17 +12,19 @@ class Solution:
         if not root:
             return res
             
-        q = deque([root])
-        while q:
-            level = []
-            size = len(q)
-                    
-            for node in range(size):
-                node = q.popleft()
-                level.append(node.val)
+        def level_ord(node):
+            nonlocal res
+            q = deque([root])
+            while q:
+                level = []
+                size = len(q)
 
-                if node.left: q.append(node.left)
-                if node.right: q.append(node.right)
-            res.append(level)
+                for node in range(size):
+                    node = q.popleft()
+                    level.append(node.val)
 
+                    if node.left: q.append(node.left)
+                    if node.right: q.append(node.right)
+                res.append(level)
+        level_ord(root)
         return res

@@ -7,12 +7,16 @@ class Solution:
         # merged intervals will begin with the first element
         res = [intervals[0]]
         for interval in intervals:
-            # if c is <= b, then the intervals overlap
+            # If there is no overlap with the last interval in merged, add it.
             if res[-1][1] < interval[0]:
                 res.append(interval)
             else:
+                
+                # There's overlap because . Find the max of them 
+                # c <= b, then the intervals overlap
+                # Compare the maxes of b and d 
+                # we get [a, d]
                 res[-1][1] = max(res[-1][1], interval[1])
-            
         return res
         
         

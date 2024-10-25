@@ -1,18 +1,36 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         
-        # Sort the intervals by the starting values.
+        # sort by the first values of each interval, so we can have a sorted list
         intervals.sort(key=lambda x: x[0])
-
-        # List to hold merged intervals.
-        merged = []
-
+        
+        # merged intervals will begin with the first element
+        res = [intervals[0]]
         for interval in intervals:
-            # If merged is empty or there is no overlap with the last interval in merged, add it.
-            if not merged or merged[-1][1] < interval[0]:
-                merged.append(interval)
+            # if c is <= b, then the intervals overlap
+            if res[-1][1] < interval[0]:
+                res.append(interval)
             else:
-                # There is overlap, so merge the current interval with the last one in merged.
-                merged[-1][1] = max(merged[-1][1], interval[1])
-
-        return merged
+                res[-1][1] = max(res[-1][1], interval[1])
+            
+        return res
+        
+        
+'''
+Intuition
+    - We know the intervals are sorted already?
+        Since they're sorted, we can pretty much merge them into an interval.
+        We would just have to find the overlapping ones
+    - What does 'merge' mean?
+        - combining overlapping intervals into a single inteval
+            i.e [1,3] + [2, 6] = [1,6]
+    - how to know if intervals overlap?
+        [a,b] + [c,d] = [a, d], if c <= b
+    - what to do when overlap?
+        - merge by :
+            - [a, max(b, d)]
+    - if they don't overlap :
+        - add current interval to list of results
+        
+1. 
+'''

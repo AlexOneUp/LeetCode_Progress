@@ -16,9 +16,15 @@ class Solution:
             
             #core logic
             # the peak of a subset x^k
+            
+            #for every single key, does a squared key exist?
             square_k = k **2
+            
+            #if it does and there's more than 1 key, then that's not the best solution
             if vals[k] > 1 and square_k in vals:
                 continue
+            # when you get to valid top of the pyramid 
+            # count is 1 and keep trying to sq root
             count = 1
             curr = k ** 0.5 
             

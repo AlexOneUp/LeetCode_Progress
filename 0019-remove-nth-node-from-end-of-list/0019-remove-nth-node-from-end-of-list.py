@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        
+        # resulting head node
         dummy = ListNode(0, head)
         trail = dummy
         front = dummy
@@ -17,11 +17,13 @@ class Solution:
         while front.next:
             trail, front = trail.next, front.next
         
-        # trailing ptr is now directly behind the Nth node
+        # trailing ptr is now directly behind the Nth node, skip the next node
         trail.next = trail.next.next
-        while trail.next:
+        #while trail isn't none
+        while trail.next != front.next:
                 trail = trail.next
 
+        # dummy is the head of the new linked list
         return dummy.next
         
 '''

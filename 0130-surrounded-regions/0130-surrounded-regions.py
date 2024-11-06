@@ -16,13 +16,14 @@ class Solution:
             dfs(i, j - 1)
         
         # Step 1
-        # change the border elements to something else
+        # change the border elements to something else. 
+        # doesn't matter if it changes inside elements
         for row in range(ROWS):
             if board[row][0] == "O":
                 dfs(row, 0)
             if board[row][COLS - 1] == "O":
                 dfs(row, COLS-1)
-                
+        print(board)      
         for col in range(COLS):
             if board[0][col] == "O":            
                 dfs(0, col)

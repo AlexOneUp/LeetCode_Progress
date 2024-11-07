@@ -2,22 +2,43 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         res = 0
         
-        charSet = set()
-        l = 0
+        substr = set()
+        left, right = 0, 0
         
-        for r in range(len(s)):
-            while s[r] in charSet:
-                # Slides window by removing from the set
-                charSet.remove(s[l])
-                l += 1
-            charSet.add(s[r])
-            # Compute the maxmimum substring because the substring is length of right - left pointer
-            res = max(res, r - l + 1)
+        for right in range(len(s)):
+            # sliding window 
+            if s[right] in substr:
+                # finds the length of running substring
+                while s[right] in substr:
+                    substr.remove(s[left]) 
+                    left+=1
+                substr.add(s[right])
+                # starts a new substr
+                
+                    
+            else:
+                substr.add(s[right])
+                res = max(res, right - left + 1)
+
+                
         return res
         
+        
 '''
+Find LENGTH longest substring (unique chars)
+
 Intuition :
-    - Find longest substr wihtout repeating chars
-    - 
+    - each substring is unique chars
+        -storage / lookup on these chars?
+            - set
+    - iter through s
+        keep track of the longest substring if theyre unique characters
+            - we know characters unique if its in our set
+                O(1) look up
+    - if is unique add to set
+    - if not, we move onto next character
+        pop chars from substr by Longest substr times
+    
+    - sliding window appraoch
 
 '''

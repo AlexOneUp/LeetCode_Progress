@@ -17,15 +17,18 @@ class Solution:
             while q:
                 
                 cur, cur_sum = q.popleft()
-
+                # Base case 2 
+                # Leaf node and cur_sum finally reaches targetSum
                 if not cur.left and not cur.right and cur_sum == targetSum:
                     return True
 
+                #BFS
                 if cur.left : 
                     q.append((cur.left, cur_sum + cur.left.val))
                     
                 if cur.right : 
                     q.append((cur.right, cur_sum + cur.right.val))
+            # No path was found w/ targetSum
             return False
 
         return bfs(root)

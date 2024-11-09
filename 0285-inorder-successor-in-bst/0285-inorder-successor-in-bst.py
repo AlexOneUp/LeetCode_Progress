@@ -15,6 +15,7 @@ class Solution:
             if not node: return
             
             dfs(node.left)
+            
             if found_p and successor is None:
                 successor = node
                 return

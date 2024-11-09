@@ -22,14 +22,16 @@ class Solution:
                 if level >= len(res): res.append([])
                     
                 if level % 2 == 0:
+                    print(cur.val)
                     res[level].append(cur.val)
                 else:
                     res[level].insert(0, cur.val)
+                    print(res[level])
                 
                 if cur.left:
                     q.append((cur.left, level + 1))
                 if cur.right:
-                        q.append((cur.right, level + 1))
+                    q.append((cur.right, level + 1))
         bfs(root, 0)
         return res
         

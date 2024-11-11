@@ -17,7 +17,7 @@ class Solution:
             left, left_node = dfs(node.left)
             right, right_node = dfs(node.right)
             
-            # if the sum which is 
+            # if the sum which is (sum of parent + left + right) // (count_nodes + 1)
             if (node.val + left + right) // (left_node + right_node + 1) == node.val:
                 count += 1
             # left and right average and the left_nodes and right_nodes counters

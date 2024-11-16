@@ -1,20 +1,53 @@
 class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
-        self.minHeap, self.k = nums, k
-        heapq.heapify(self.minHeap)
-        while len(self.minHeap) > k:
-            heapq.heappop(self.minHeap)
-            
+        self.min_heap, self.k = nums, k
+        heapq.heapify(self.min_heap)
+        while len(self.min_heap) > k:
+            heapq.heappop(self.min_heap)
 
     def add(self, val: int) -> int:
-        heapq.heappush(self.minHeap, val)
-        if len(self.minHeap) > self.k:
-            heapq.heappop(self.minHeap)
-        return self.minHeap[0]
-        
+        heapq.heappush(self.min_heap, val)
+        if len(self.min_heap) > self.k:
+            heapq.heappop(self.min_heap)
+        return self.min_heap[0]
+
 
 
 # Your KthLargest object will be instantiated and called as such:
 # obj = KthLargest(k, nums)
 # param_1 = obj.add(val)
+
+
+
+'''
+kth highest test score
+
+INTUITION :
+
+UMPIRE
+_________________________________
+Understand :
+    - kth highest test score
+    - stream test scores, return kth highest after each method call
+    
+
+_________________________________
+Match:
+    - min heap
+        + keeps track of kth largest by the 
+
+_________________________________
+Plan:
+
+
+_________________________________
+
+
+
+Implement:
+
+
+'''
+
+

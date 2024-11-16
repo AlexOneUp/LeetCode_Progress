@@ -26,5 +26,5 @@ class Solution:
             dfs(idx + 1)
             
         dfs(0)
-        return res[::-1]
+        return res
             

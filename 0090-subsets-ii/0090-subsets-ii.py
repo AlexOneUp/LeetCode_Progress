@@ -7,7 +7,7 @@ class Solution:
         
         def dfs(idx):
             if idx >= len(nums):
-                res.append(subset.copy())
+                res.append(subset[::])
                 return
             
             #Decision to add the tree path

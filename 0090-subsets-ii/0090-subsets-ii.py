@@ -6,6 +6,7 @@ class Solution:
         subset = []
         
         def dfs(idx):
+            # If we've reached the end, just copy last value
             if idx >= len(nums):
                 res.append(subset[::])
                 return
@@ -21,9 +22,9 @@ class Solution:
                 # Iterate over the current idx because it's the same value.
                 idx += 1
                 
+            # Case that adds empty array at the end
             dfs(idx + 1)
             
         dfs(0)
-        print(sorted(res))
-        return res
+        return res[::-1]
             

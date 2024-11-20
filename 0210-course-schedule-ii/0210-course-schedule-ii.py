@@ -1,54 +1,37 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         
-        adj_list = {node: [] for node in range(numCourses) }
-        
-        for course, pre in prerequisites:
-            adj_list[course].append(pre)
-        
+        adj_list = {node: [] for node in range(numCourses)}
+        for u, v in prerequisites:
+            adj_list[u].append(v)
+
+            
+        cycle = set() #cycle detection
+        visiting = set()
+        unvisited = set()
         res = []
-        visited, cycle = set(), set()
-        
         def dfs(course):
-            if course in cycle:
+            if course in cycle: # cycle found
                 return False
-            
-            if course in visited:
+            if course in visiting:
                 return True
-            
+
             cycle.add(course)
             
-            
-            for pre in adj_list[course]:
-                # if you detect a cycle
-                if dfs(pre) == False: return False
-                
-                #if you haven't detected a cycle
+            for pre_req in adj_list[course]:
+                if not dfs(pre_req):
+                    return False
             cycle.remove(course)
-                
-            visited.add(course)
+            visiting.add(course)
             res.append(course)
             return True
-        for c in range(numCourses):
-                # if we detected a cycle, return empty list
-            if dfs(c) == False:
-                return []
-            
+        for crs in range(numCourses):
+            if not dfs(crs): return [] # detected a cycle, so we cannot finish courses
         return res
 '''
-0 -> n-1 courses
+UMPIRE:
 
-must take B if u want to take A
-[A, B]
-
-return the order of courses to finish all courses
-
-detect cycles
-    - example [[1,0], [0,1]]
+U: 
     
-    
-Topological sort
-
-
 
 '''

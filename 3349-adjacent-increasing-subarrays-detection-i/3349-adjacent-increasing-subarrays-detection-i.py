@@ -3,15 +3,18 @@ class Solution:
 #         l, r = 0, 1
 #         subarr_sz = set()
 #         while r < len(nums) + 1:
-            
 #             while r < len(nums) and nums[r] > nums[r-1] and r - l + 1 <= k:
 #                 r += 1
-#         if r - l == k:
-#             if (r - 1) in subarr_sz: return True
-#             subarr_sz.add(r - 1)
-#         l += 1
-#         r = l + 1
+            
+#             if r - l == k:
+#                 if (r - 1) in subarr_sz: 
+#                     return True
+#                 subarr_sz.add(r - 1)
+            
+#             l += 1
+#             r = l + 1
 #         return False
+
         # i is start of the current window
         i, j = 0, 1
 

@@ -14,19 +14,21 @@ class Solution:
 
         # DFS function to detect cycles and check connectivity
         def dfs(node, parent):
-            visited.add(node)
-            for neighbor in adj_list[node]:
+            visited.add(node) # add the parent to the visited set
+            for neighbor in adj_list[node]: # visit the neighbors in adj list
                 if neighbor not in visited:
                     if not dfs(neighbor, node):  # Recursively visit neighbors
                         return False
                 elif neighbor != parent:  # Cycle detected
                     return False
+    
             return True
 
         # Start DFS from node 0
+        
         if not dfs(0, -1):  # -1 is used as the parent of the root node
             return False
-
+        print(visited)
         # Ensure all nodes are visited (graph is connected)
         return len(visited) == n
 
@@ -90,7 +92,7 @@ P:
         + parent : child
     - parent_node
     - NODES STATES :
-        + visited : hashmap
+        + visited set
             ++ children : 1 parent (parent node)
                 +++ if child has a parent already, cycles detected 
                     ++ return false
